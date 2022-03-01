@@ -9,12 +9,12 @@ class ChartRow extends Component {
         }
     }
     componentDidMount() {
-        fetch('/api/product/' + this.props.dataFromParent)
+        fetch('/api/product/' + this.props.dataFromParent.id)
             .then(respuesta => { return respuesta.json() })
-            .then(product => {
-                console.log(product)
+            .then(producto => {
+                console.log(producto)
 
-                this.setState({ products: product.products })
+                this.setState({ product: producto })
             })
             .catch(error => console.log(error))
     }
@@ -23,10 +23,27 @@ class ChartRow extends Component {
             <tr>
 
                 <td>
-                     Data from parent is :{this.props.dataFromParent}
+                    {this.state.product ? this.state.product.titulo : "cargando"}
+                </td>
+                <td>
+                    {this.state.product ? this.state.product.Edad : "cargando"}
+                </td>
+                <td>
+                    {this.state.product ? this.state.product.Dificultad : "cargando"}
+                </td>
+                <td>
+                    {this.state.product ? this.state.product.Categorias.map((c,i)=>{
+                        return <li key={i}>{c}</li>
+                    }) : "cargando"}
+                </td>
+                <td>
+                {this.state.product ? this.state.product.Plataformas.map((p,i)=>{
+                        return <li key={i}>{p}</li>
+                    }) : "cargando"}
                 </td>
 
             </tr>
+
         )
     }
 }

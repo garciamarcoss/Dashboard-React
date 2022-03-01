@@ -30,24 +30,24 @@ class Chart extends Component {
                                 <tr>
                                     <th>Título</th>
                                     <th>Edad</th>
-                                    <th>Rating</th>
+                                    <th>Dificultad</th>
                                     <th>Categorías</th>
                                     <th>Plataforma</th>
                                 </tr>
                             </thead>
-                            <tfoot>
+                            {/* <tfoot>
                                 <tr>
                                     <th>Título</th>
                                     <th>Edad</th>
-                                    <th>Rating</th>
+                                    <th>Dificultad</th>
                                     <th>Categorías</th>
                                     <th>Plataforma</th>
                                 </tr>
-                            </tfoot>
+                            </tfoot> */}
                             <tbody>
                                 {
                                     this.state.products.map((row, i) => {
-                                        return <ChartRow dataFromParent= {row.Id}  key={i} />
+                                        return <ChartRow dataFromParent= {row}  key={i} />
                                     })
                                 }
 
