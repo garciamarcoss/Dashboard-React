@@ -54,7 +54,7 @@ function AllContent() {
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item nav-link">
-                    <Link className="nav-link" to="/ContentRowMovies">
+                    <Link className="nav-link" to="/Usuarios">
                         <i className="fas fa-fw fa-table"></i>
                         <span>Tabla</span></Link>
                 </li>
