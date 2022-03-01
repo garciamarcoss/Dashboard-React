@@ -6,16 +6,16 @@ class Usuarios extends Component {
     constructor() {
         super()
         this.state = {
-            products: []
+            usuarios: []
         }
     }
     componentDidMount() {
-        fetch('/api/usuarios')
+        fetch('/api/user')
             .then(respuesta => { return respuesta.json() })
             .then(usuario => {
                 console.log(usuario)
                 
-                this.setState({ products: product.products })
+                this.setState({ usuarios: usuario.users })
             })
             .catch(error => console.log(error))
     }
@@ -45,7 +45,7 @@ class Usuarios extends Component {
                             </tfoot> */}
                             <tbody>
                                 {
-                                    this.state.products.map((row, i) => {
+                                    this.state.usuarios.map((row, i) => {
                                         return <UsuarioRow dataFromParent= {row}  key={i} />
                                     })
                                 }

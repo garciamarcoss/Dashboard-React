@@ -4,6 +4,7 @@ import ContentWrapper from './ContentWrapper';
 import GenresInDb from './CategoriesInDb';
 import LastMovieInDb from './LastGameInDb';
 import ContentRowMovies from './TarjetasTotales';
+import Usuarios from './Usuarios';
 import NotFound from './NotFound';
 import { Link, Route, Switch } from 'react-router-dom';
 
@@ -92,6 +93,9 @@ function AllContent() {
                 </Route>
                 <Route path="/ContentRowMovies">
                     <ContentRowMovies />
+                </Route>
+                <Route path="/Usuarios">
+                    <Usuarios />
                 </Route>
                 <Route component={NotFound} />
             </Switch>

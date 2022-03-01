@@ -9,7 +9,7 @@ class UsuarioRow extends Component {
         }
     }
     componentDidMount() {
-        fetch('/api/usuarios/' + this.props.dataFromParent.id)
+        fetch('/api/user/' + this.props.dataFromParent.id)
             .then(respuesta => { return respuesta.json() })
             .then(usuario => {
                 console.log(usuario)
@@ -29,10 +29,10 @@ class UsuarioRow extends Component {
                     {this.state.usuario ? this.state.usuario.apellido : "cargando"}
                 </td>
                 <td>
-                    {this.state.usuario ? this.state.usuario.usuario : "cargando"}
+                    {this.state.usuario ? this.state.usuario.userName : "cargando"}
                 </td>
                 <td>
-                    {this.state.usuario ? this.state.usuario.email : "cargando"}
+                    {this.state.usuario ? this.state.usuario.correo : "cargando"}
                 </td>
 
             </tr>
