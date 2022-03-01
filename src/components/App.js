@@ -1,6 +1,5 @@
 import React from 'react';
 import AllContent from'./AllContent';
-import ContentWrapper from './ContentWrapper';
 function App() {
   return (
     <React.Fragment>

@@ -1,50 +1,72 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SmallCard from './SmallCard';
 
-/*  Cada set de datos es un objeto literal */
+class ContentRowMovies extends Component {
+    constructor() {
+        super()
+        this.state = {
+            usersTotal: null,
+            productsTotal: null,
+            categoriesTotal: null,
+        }
+    }
 
-/* <!-- Movies in DB --> */
+    componentDidMount() {
+        fetch('/api/category')
+            .then(respuesta => { return respuesta.json() })
+            .then(category => {
+                console.log(category)
+                let categorias = {
+                    title: 'Total de Categorias',
+                    color: 'warning',
+                    cuantity: category.length,
+                    icon: 'fa-clipboard-list'
+                }
+                this.setState({ categoriesTotal: categorias })
+            })
+            .catch(error => console.log(error))
+        fetch('/api/product')
+            .then(respuesta => { return respuesta.json() })
+            .then(product => {
+                console.log(product)
+                let juegos = {
+                    title: 'Cantidad de Juegos',
+                    color: 'success',
+                    cuantity: product.count,
+                    icon: 'fa-award'
+                }
+                this.setState({ productsTotal: juegos })
+            })
+            .catch(error => console.log(error))
+        fetch('/api/user')
+            .then(respuesta => { return respuesta.json() })
+            .then(user => {
+                console.log(user)
+                let usuarios = {
+                    title: 'Cantidad de Usuarios',
+                    color: 'primary',
+                    cuantity: user.count,
+                    icon: 'fa-user-check'
+                }
+                this.setState({ usersTotal: usuarios })
+            })
+            .catch(error => console.log(error))
+    }
 
-let usuarios = {
-    title: 'Cantidad de Usuarios',
-    color: 'primary', 
-    cuantity: 21,
-    icon: 'fa-user-check'
-}
+    render() {
+        return (
 
-/* <!-- Total awards --> */
+            <div className="row">
 
-let juegos = {
-    title:'Cantidad de Juegos', 
-    color:'success', 
-    cuantity: 79,
-    icon:'fa-award'
-}
 
-/* <!-- Actors quantity --> */
+                <SmallCard {...this.state.productsTotal} key={1} />
+                <SmallCard {...this.state.usersTotal} key={2} />
+                <SmallCard {...this.state.categoriesTotal} key={0} />
 
-let categorias = {
-    title:'Total de Categorias' ,
-    color:'warning',
-    cuantity: 49,
-    icon:'fa-clipboard-list'
-}
 
-let cartProps = [usuarios, juegos, categorias];
-
-function ContentRowMovies(){
-    return (
-    
-        <div className="row">
-            
-            {cartProps.map( (movie, i) => {
-
-                return <SmallCard {...movie} key={i}/>
-            
-            })}
-
-        </div>
-    )
+            </div>
+        )
+    }
 }
 
 export default ContentRowMovies;

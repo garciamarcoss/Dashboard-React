@@ -10,11 +10,11 @@ class CategoriesInDb extends Component {
         }
     }
     componentDidMount(){
-        fetch('/api/genres')
+        fetch('/api/category')
             .then(respuesta => {return respuesta.json()})
-            .then(genres=>{
-                console.log(genres)
-                this.setState({genresList: genres.data})
+            .then(category=>{
+                console.log(category)
+                this.setState({genresList: category})
             })
             .catch(error=>console.log(error))
     }
