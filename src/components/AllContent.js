@@ -1,10 +1,11 @@
 import React from 'react';
 import foto from '../assets/images/jordan-walke.png'
 import ContentWrapper from './ContentWrapper';
-import GenresInDb from './CategoriesInDb';
-import LastMovieInDb from './LastGameInDb';
+import CategoriesInDb from './CategoriesInDb';
+import LastGameInDb from './LastGameInDb';
 import ContentRowMovies from './TarjetasTotales';
 import Usuarios from './Usuarios';
+import Chart from './Chart';
 import NotFound from './NotFound';
 import { Link, Route, Switch } from 'react-router-dom';
 
@@ -40,7 +41,7 @@ function AllContent() {
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/GenresInDb">
+                    <Link className="nav-link" to="/juegos">
                         <i className="fas fa-fw fa-folder"></i>
                         <span>Juegos</span>
                     </Link>
@@ -48,14 +49,14 @@ function AllContent() {
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/LastMovieInDb">
+                    <Link className="nav-link" to="/usuarios">
                         <i className="fas fa-fw fa-chart-area"></i>
                         <span>Usuarios</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item nav-link">
-                    <Link className="nav-link" to="/Usuarios">
+                    <Link className="nav-link" to="/tablas">
                         <i className="fas fa-fw fa-table"></i>
                         <span>Tabla</span></Link>
                 </li>
@@ -85,17 +86,19 @@ function AllContent() {
                 <Route exact path="/">
                     <ContentWrapper />
                 </Route>
-                <Route path="/GenresInDb">
-                    <GenresInDb />
+                <Route path="/juegos">
+                    <CategoriesInDb />
+                    <LastGameInDb />
                 </Route>
-                <Route path="/LastMovieInDb">
-                    <LastMovieInDb />
+                <Route path="/usuarios">
+                    <Usuarios />
                 </Route>
                 <Route path="/ContentRowMovies">
                     <ContentRowMovies />
                 </Route>
-                <Route path="/Usuarios">
+                <Route path="/tablas">
                     <Usuarios />
+                    <Chart />
                 </Route>
                 <Route component={NotFound} />
             </Switch>
