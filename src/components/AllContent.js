@@ -14,15 +14,7 @@ function AllContent() {
         <React.Fragment>
             {/*<!-- Sidebar -->*/}
             <ul className="bg-color-side navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
-                <li className="nav-item dropdown no-arrow perfil">
-                    <a className="nav-link dropdown-toggle" href="/" id="userDropdown">
-                        <div className='perfil-separate'>
-                            <span>Jordan Walke</span>
-                            <img className="img-profile rounded-circle" src={foto} alt="Jordan Walke - Creador de React" width="60" />
-
-                        </div>
-                    </a>
-                </li>
+               
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider my-0" />
 
